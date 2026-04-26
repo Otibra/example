@@ -1,18 +1,40 @@
+def get_number(prompt):
+    while True:
+        try:
+            return float(input(prompt))
+        except ValueError:
+            print("Invalid number, please enter a valid number.")
+
+
 def cal():
-    num1 = float(input("enter your number: "))
-    num2 = float(input("enter second number: "))
-    operetor = input("enter operetors -,+,*,/: ")
-    if operetor == '-':
-        return num1 - num2
-    elif operetor == '+':
-        return num1 + num2
-    elif operetor == '*':
-        return num1 * num2 
-    elif operetor == '/':
-        if num2 == 0:
-            return ("zero is not devisible enter again ")
+    num1 = get_number("Enter your first number: ")
+    num2 = get_number("Enter your second number: ")
+
+    while True:
+        operator = input("Enter operator (-, +, *, /): ")
+
+        if operator == '-':
+            return num1 - num2
+        elif operator == '+':
+            return num1 + num2
+        elif operator == '*':
+            return num1 * num2 
+        elif operator == '/':
+            if num2 == 0:
+                print("Cannot divide by zero.")
+                num2 = get_number("Enter second number again: ")
+                continue
+            return num1 / num2
         else:
-            return num1 / num1
-    else:
-        return ("not valid number")
+            print("Invalid operator, enter operator again.")
+
+
+while True:
+    result = cal()
+    print("Result:", result)
+
+    choice = input("Do you want to continue? (yes/no): ").lower()
+    if choice == 'no':
+        print("Exiting calculator...")
+        break
     
