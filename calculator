@@ -1,0 +1,18 @@
+def cal():
+    num1 = float(input("enter your number: "))
+    num2 = float(input("enter second number: "))
+    operetor = input("enter operetors -,+,*,/: ")
+    if operetor == '-':
+        return num1 - num2
+    elif operetor == '+':
+        return num1 + num2
+    elif operetor == '*':
+        return num1 * num2 
+    elif operetor == '/':
+        if num2 == 0:
+            return ("zero is not devisible enter again ")
+        else:
+            return num1 / num1
+    else:
+        return ("not valid number")
+    
